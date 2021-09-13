@@ -9,7 +9,11 @@ router.get(`/books`, apiController.getAll);
 
 router.get(`/books/:id`, apiController.getById);
 
+router.get(`/create`, apiController.create);
+
 router.get('/nearby', apiController.details);
+
+router.get(`/books-search`, apiController.filterAll);
 
 router.post(`/books`, validateBody, apiController.create);
 

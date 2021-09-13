@@ -28,7 +28,7 @@ const CBSchema = new Schema({
   },
   liked: {
     type: Boolean,
-    default: true
+    default: false
   },
   geometry: GeoSchema
 });

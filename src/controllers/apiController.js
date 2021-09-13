@@ -1,5 +1,13 @@
 const CB = require('../models/CBmodel');
 
+exports.test = (req, res) => {
+    res.render('CB');
+  };
+
+exports.create = (req, res) => {
+    res.render('createPI');
+  };
+
 exports.getAll = async (req, res) => {
     CB.find({}).then((cb) => {
         res.send(cb);
@@ -11,7 +19,7 @@ exports.getById = async (req, res) => {
 
     try {
         const book = await CB.findById(id);
-        //colocar no middleware
+        
         if (!book) {
             res.status(404).send({ message: "Book was not found."});
             return;
@@ -37,7 +45,7 @@ module.exports.details = (req, res, next) =>{
           "$maxDistance": 100000
         }
          }])
-          .then(pi => res.send(pi))
+          .then(cb => res.send(cb))
           .catch(next);
 };
 
@@ -62,4 +70,25 @@ exports.delete = (req, res, next) => {
     req.params.id}).then((cb) => {
         res.send(cb);
     }).catch(next);
+};
+
+exports.filterAll = async (req, res) => {
+    let { name, author } = req.query;
+
+    !name ? (name = "") : (name = name);
+    !author ? (author = "") : (author = author);
+
+    try {
+        const books = await CB.find({
+            name: { $regex: `${name}`, $options: 'i'},
+            author: { $regex: `${author}`, $options: 'i'},
+        });
+
+        if (books.length === 0)
+        return res.status(404).send({ erro: "Book wasn't found."});
+
+        return res.send({books});
+    } catch (err) {
+        return res.status(500).send({ error: err.message});
+    }
 };
