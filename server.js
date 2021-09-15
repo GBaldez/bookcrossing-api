@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const connectToDb = require("./src/database/database"); 
 const routes = require(`./src/routes/api`);
 var cors = require("cors");
@@ -19,7 +19,7 @@ app.get(`/`, (req, res) => {
 
 app.use(`/api`, routes);
 
-app.listen(process.env.port || port, () => {
+app.listen(port, () => {
     console.log('Servidor em execução na porta: '+ port);
 });
 
