@@ -1,7 +1,7 @@
 
 <h1 align="center">
+  <img alt="croosbooking" title="crossbooking" src="https://www.elconsejo.org/wp-content/uploads/2019/01/banner-bookcrossing-portada.png" width="300px" /><br>
     BookCrossing
-  <img alt="croosbooking" title="crossbooking" src="https://www.elconsejo.org/wp-content/uploads/2019/01/banner-bookcrossing-portada.png" width="300px" />
 </h1>
 
 <h2 style="color:yellow; background:black" align="center"> Node.js Practice </h3>
@@ -42,7 +42,7 @@ To start the application with node
   npm start
   
 ```
-## Testando a API
+## API Test
 You will need a API Client,you can use:
 * Postman
 * Insomnia
