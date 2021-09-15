@@ -1,5 +1,6 @@
 const CB = require('../models/CBmodel');
 
+
 exports.test = (req, res) => {
     res.render('CB');
   };

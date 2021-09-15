@@ -6,7 +6,6 @@ const connectToDb = require("./src/database/database");
 const routes = require(`./src/routes/api`);
 var cors = require("cors");
 
-
 connectToDb();
 
 app.use(cors());
