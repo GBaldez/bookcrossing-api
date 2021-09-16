@@ -53,7 +53,7 @@ module.exports.details = (req, res, next) =>{
 //next chama o próximo middleware caso ocorra um erro.
 exports.create = (req, res, next) => {
      CB.create(req.body).then((cb)=> {
-        res.send(cb);
+        res.send({cb});
     }).catch(next);
 };
 
@@ -61,7 +61,7 @@ exports.update = (req, res, next) => {
     CB.findByIdAndUpdate({_id: req.params.id},
         req.body).then(() =>{
             CB.findOne({_id:req.params.id}).then((cb) => {
-                res.send(cb);
+                res.send({cb});
             });
         }).catch(next);
 };
