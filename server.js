@@ -14,9 +14,10 @@ app.options("*", cors());
 
 app.use(express.json());
 
-app.get(`/`, (req, res) => {
-    res.send(`ENDPOINT INVÁLIDO!`);
-});
+app.get("/", (req, res) => {
+    res.send({ info: "Olá, Blue" });
+}); 
+
 
 app.use(`/api`, routes);
 
